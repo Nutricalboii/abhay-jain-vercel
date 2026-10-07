@@ -6,6 +6,7 @@ Editorial portfolio website for Abhay Jain, designed for senior executives, boar
 
 - Private preview: https://abhay-jain-executive-profile.workspace-027574.chatgpt.site
 - Production domain: https://abhayjain.net (not changed yet)
+- Vercel preview: https://abhay-jain-vercel.vercel.app
 
 ## Positioning
 
@@ -55,6 +56,8 @@ npm run lint
 npm run build
 ```
 
+Vercel uses the static export in `dist/client`, configured through `vercel.json`.
+
 ## Project structure
 
 ```text
@@ -84,4 +87,3 @@ The source material is the existing `abhayjain.net` site, public LinkedIn profil
 3. Run `npm run lint` and `npm run build` after changes.
 4. Do not change `abhayjain.net` DNS or deployment settings without approval.
 5. Before final launch, replace `[Current title TBC]` and `Email [TBC]` with confirmed details.
-
