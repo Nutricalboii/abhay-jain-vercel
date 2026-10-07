@@ -17,9 +17,9 @@
   --copper-dim: rgba(180,83,42,.55);
   --white:      #FBFAF6;
 
-  /* Typography — Fraunces display + Instrument Sans body */
-  --font-display: var(--font-display, 'Fraunces', Georgia, serif);
-  --font-sans:    var(--font-sans, 'Instrument Sans', 'Inter', system-ui, sans-serif);
+  /* Typography — set via next/font CSS variables injected on <html> */
+  --font-display-fallback: Georgia, 'Times New Roman', serif;
+  --font-sans-fallback:    'Inter', system-ui, sans-serif;
   --font-mono:    'SFMono-Regular', 'Menlo', 'Consolas', monospace;
 
   /* Spacing scale */
@@ -44,7 +44,7 @@ html  { scroll-behavior: smooth; font-size: 16px; -webkit-text-size-adjust: 100%
 body  {
   background: var(--paper);
   color: var(--ink);
-  font-family: var(--font-sans);
+  font-family: var(--font-sans, var(--font-sans-fallback));
   font-size: 1rem;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -945,4 +945,162 @@ button { font: inherit; border: none; background: none; cursor: pointer; }
   .work-header { flex-direction: column; gap: 16px; }
   .contact-h2 { font-size: 42px; }
   .about-h1 { font-size: clamp(52px, 15vw, 80px); }
+}
+
+/* ── logo grid (About page) ─────────────────────────────────────────────── */
+.logo-section-header { margin-bottom: 48px; }
+.logo-section-header .section-number { margin-bottom: 6px; }
+
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.logo-grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+.logo-card {
+  padding: 28px;
+  border-radius: 16px;
+  background: rgba(255,255,255,.55);
+  border: 1px solid var(--ink-08);
+  transition: background .3s, border-color .3s, transform .3s;
+}
+.logo-card:hover {
+  background: rgba(255,255,255,.85);
+  border-color: var(--ink-15);
+  transform: translateY(-4px);
+}
+.logo-card-img-wrap {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.logo-card-img-wrap--white {
+  background: #fff;
+  border-radius: 8px;
+  padding: 10px;
+}
+.logo-card-img {
+  max-height: 100%;
+  width: auto;
+  object-fit: contain;
+  opacity: .85;
+}
+.logo-card:hover .logo-card-img { opacity: 1; }
+.logo-card-name {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: -.02em;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.logo-card-role { font-size: 13px; color: var(--ink-60); line-height: 1.5; }
+
+/* ── banner section ─────────────────────────────────────────────────────── */
+.banner-section {
+  position: relative;
+  width: 100%;
+  padding: 120px 0;
+  overflow: hidden;
+}
+.banner-img-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.banner-img {
+  object-fit: cover;
+  object-position: 80% center;
+  filter: grayscale(40%);
+  opacity: .65;
+}
+.banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, var(--paper) 20%, transparent 70%);
+}
+.banner-content {
+  position: relative;
+  z-index: 1;
+  max-width: 520px;
+}
+.banner-h2 {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: clamp(48px, 6vw, 80px);
+  font-weight: 400;
+  letter-spacing: -.04em;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+.banner-sub {
+  font-size: 17px;
+  color: var(--ink-60);
+  line-height: 1.65;
+  margin-bottom: 32px;
+  max-width: 420px;
+}
+
+/* ── track stat ─────────────────────────────────────────────────────────── */
+.track-stat {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 22px !important;
+  font-weight: 400;
+  letter-spacing: -.03em;
+  color: var(--copper);
+  white-space: nowrap;
+}
+
+/* ── sub-head ───────────────────────────────────────────────────────────── */
+.sub-head {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ink-35);
+  margin-bottom: 24px;
+}
+
+/* ── pub-list-about (light background) ─────────────────────────────────── */
+.pub-list-about .pub-item {
+  background: rgba(255,255,255,.55);
+  border: 1px solid var(--ink-08);
+  border-radius: 12px;
+}
+.pub-list-about .pub-item:hover {
+  background: rgba(255,255,255,.85);
+  border-color: var(--ink-15);
+}
+.pub-list-about .pub-idx { color: var(--copper); }
+.pub-list-about .pub-title { color: var(--ink); }
+.pub-list-about .pub-src { color: var(--ink-60); }
+.pub-list-about .pub-view { color: var(--copper); }
+
+/* ── beyond block ───────────────────────────────────────────────────────── */
+.beyond-body { display: flex; flex-direction: column; justify-content: center; gap: 20px; }
+.beyond-quote {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: clamp(22px, 2.5vw, 30px);
+  font-style: italic;
+  color: var(--ink);
+  line-height: 1.45;
+  letter-spacing: -.02em;
+}
+.beyond-cap { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-35); }
+
+/* ── responsive logo grid ───────────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .logo-grid { grid-template-columns: repeat(2, 1fr); }
+  .logo-grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .banner-img { opacity: .35; }
+  .banner-overlay { background: linear-gradient(to right, var(--paper) 40%, rgba(243,240,232,.7) 100%); }
+}
+@media (max-width: 640px) {
+  .logo-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .logo-card { padding: 20px; }
+  .logo-card-img-wrap { height: 48px; }
+  .logo-card-name { font-size: 15px; }
+  .banner-section { padding: 80px 0; }
+  .track-stat { font-size: 18px !important; }
 }

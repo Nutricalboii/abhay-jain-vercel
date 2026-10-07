@@ -1,80 +1,76 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-/* ── data ────────────────────────────────────────────────────────────────── */
+/* ── real data from source sites ─────────────────────────────────────────── */
 const focusAreas = [
-  'Power-management and embedded analog businesses in India',
-  'Product definition, portfolio strategy, and commercial execution',
-  'Cross-functional leadership across India and global teams',
-  'Ecosystem partnerships in automotive, industrial, and energy markets',
+  'Leading Renesas\' India-for-India business unit, managing power management, sensing, and embedded analog semiconductor portfolios.',
+  'Shaping localised product roadmaps and accelerating market adoption across automotive, industrial, and energy segments.',
+  'Developing critical ecosystem partnerships to support sustainable scaling within India\'s rapidly evolving electronics hardware economy.',
 ];
 
 const trackRecord = [
   {
-    label: 'Strategy & Execution',
-    detail:
-      'Led strategy, process transformation, and commercial execution for a large-scale power-management semiconductor business.',
+    stat: '$3B – $30B',
+    label: 'Portfolio Management',
+    detail: 'Executed go-to-market strategies, sales playbooks, and KPI architectures across global business structures.',
   },
   {
-    label: 'Management Consulting',
-    detail:
-      'Delivered engagements at McKinsey & Company across technology, energy, and operations — working across markets in Asia and North America.',
+    stat: '+15% to 20%',
+    label: 'Operational Efficiency',
+    detail: 'Built central program networks governing resource deployment, outsourcing, and analytics automation.',
   },
   {
-    label: 'Engineering & Sales',
-    detail:
-      'Combined technical engineering with commercial responsibility at Mitsubishi Heavy Industries — compressors and steam turbines for complex industrial systems.',
+    stat: '~10% Growth',
+    label: 'Org Transformation',
+    detail: 'Led post-merger integration strategies and commercial growth pilots during tenure at McKinsey & Company.',
   },
   {
-    label: 'Operating Range',
-    detail:
-      'Worked across semiconductors, energy, sustainability, and manufacturing. Experience spanning India, Japan, the United States, and global organisations.',
+    stat: 'Patented',
+    label: 'Deep-Tech Hardware',
+    detail: 'Co-authored emergency utility safety mechanics and published global industrial research at Mitsubishi Heavy Industries.',
   },
 ];
 
 const selectedWork = [
   {
     type: 'Research',
-    title: 'Global consumer sentiment during COVID-19',
-    context: 'McKinsey research tracking behavioral shifts across markets during a period of acute uncertainty.',
+    title: 'Global surveys of consumer sentiment during the coronavirus crisis',
+    source: 'McKinsey & Company · 2020',
     href: 'https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/a-global-view-of-how-consumer-behavior-is-changing-amid-covid-19',
   },
   {
-    type: 'Research',
-    title: 'VC investment trends in food waste',
-    context: 'Stanford EIPER research on capital flows, waste systems, and emerging market opportunities.',
-    href: 'https://earth.stanford.edu/eiper',
-  },
-  {
     type: 'Technical paper',
-    title: 'Compressors and steam turbines in mega ethylene plants',
-    context: 'Technical study on efficient and sustainable operation of industrial rotating equipment.',
-    href: 'https://oaktrust.library.tamu.edu/handle/1969.1/160303',
+    title: 'Technical Challenges for Compressors and Steam Turbines in Mega Ethylene Plants',
+    source: 'Texas A&M Turbomachinery Symposium · 2016',
+    href: 'https://oaktrust.library.tamu.edu/items/05594529-135c-421d-9e9b-1ca4e1ad9cce',
   },
   {
     type: 'Patent',
-    title: 'Emergency shut-off device and system',
-    context: 'Two Mitsubishi Heavy Industries patent publications in industrial safety systems.',
-    href: 'https://patents.google.com/patent/US10443513B2/en',
+    title: 'Emergency Shutoff Device and System',
+    source: 'Mitsubishi Heavy Industries · 2016',
+    href: 'https://patentscope.wipo.int/search/en/detail.jsf?docId=WO2016084140',
+  },
+  {
+    type: 'Research',
+    title: 'Low Hanging Fruit: VC Investment Trends in Food Waste',
+    source: 'Stanford EIPER · 2020',
+    href: 'https://earth.stanford.edu/eiper',
   },
 ];
 
 const affiliations = {
   current: ['Renesas Electronics'],
-  earlier: ['McKinsey & Company', 'Mitsubishi Heavy Industries', 'NextEra Energy'],
-  education: ['Stanford University', 'IIT Kanpur'],
+  earlier: ['McKinsey & Company', 'Mitsubishi Heavy Industries', 'NextEra Energy', 'AutoGrid', 'Sparkz Inc.', 'Averda'],
+  education: ['Stanford University (MBA)', 'Stanford University (MS Earth)', 'IIT Kanpur (B.Tech)'],
 };
 
-/* ── SVG graphics ────────────────────────────────────────────────────────── */
+/* ── SVG decorations ─────────────────────────────────────────────────────── */
 function SignalField() {
   return (
     <div className="signal-field" aria-hidden="true">
       <svg viewBox="0 0 640 640" fill="none">
-        {/* subtle grid */}
         <path className="field-grid-x" d="M0 160H640M0 320H640M0 480H640" />
         <path className="field-crosshair" d="M56 320H584M320 56V584" />
-
-        {/* noisy waveform → clean regulated line */}
         <path
           className="field-wave-raw"
           d="M0 321C32 321 30 258 62 258C93 258 90 382 121 382C151 382 148 286 180 286C210 286 213 355 243 355C273 355 275 274 306 274C337 274 339 360 370 360C400 360 403 291 433 291C463 291 465 330 495 330C523 330 525 320 555 320C580 320 590 320 640 320"
@@ -83,29 +79,14 @@ function SignalField() {
           className="field-wave-clean"
           d="M0 320C90 320 130 320 200 320C270 320 295 319 360 320C430 321 480 320 640 320"
         />
-
-        {/* nodes */}
         <circle className="field-node" cx="180" cy="286" r="4" />
         <circle className="field-node" cx="370" cy="360" r="4" />
         <circle className="field-core-dot" cx="320" cy="320" r="6" />
-        <circle
-          style={{ stroke: 'var(--copper)', strokeOpacity: '.4', strokeWidth: '1', fill: 'none' }}
-          cx="320"
-          cy="320"
-          r="18"
-        />
-        <circle
-          style={{ stroke: 'var(--copper)', strokeOpacity: '.2', strokeWidth: '.8', fill: 'none' }}
-          cx="320"
-          cy="320"
-          r="34"
-        />
+        <circle style={{ stroke: 'var(--copper)', strokeOpacity: '.4', strokeWidth: '1', fill: 'none' }} cx="320" cy="320" r="18" />
+        <circle style={{ stroke: 'var(--copper)', strokeOpacity: '.2', strokeWidth: '.8', fill: 'none' }} cx="320" cy="320" r="34" />
       </svg>
-
       <span className="field-label field-label-tl">SIGNAL / 01</span>
-      <span className="field-label field-label-br field-label-accent">
-        POWER · SYSTEMS · SCALE
-      </span>
+      <span className="field-label field-label-br field-label-accent">POWER · SYSTEMS · SCALE</span>
     </div>
   );
 }
@@ -115,11 +96,7 @@ function SignalThread() {
     <div className="signal-thread" aria-hidden="true">
       <svg viewBox="0 0 40 2000" preserveAspectRatio="none" fill="none">
         <path className="thread-rail" d="M20 0V2000" />
-        <path
-          className="thread-path"
-          pathLength="1"
-          d="M20 0C20 80 6 108 20 200C34 292 8 370 20 462C34 564 7 658 20 750C33 842 9 932 20 1024C31 1116 8 1208 20 1300C32 1392 9 1480 20 1580C31 1674 20 1870 20 2000"
-        />
+        <path className="thread-path" pathLength="1" d="M20 0C20 80 6 108 20 200C34 292 8 370 20 462C34 564 7 658 20 750C33 842 9 932 20 1024C31 1116 8 1208 20 1300C32 1392 9 1480 20 1580C31 1674 20 1870 20 2000" />
         <circle className="thread-pip" cx="20" cy="218" r="4" />
         <circle className="thread-pip" cx="20" cy="784" r="4" />
         <circle className="thread-pip" cx="20" cy="1390" r="4" />
@@ -148,11 +125,9 @@ export default function Home() {
           <span className="nav-dot" aria-hidden="true">·</span>
           <a href="#focus">Focus</a>
           <span className="nav-dot" aria-hidden="true">·</span>
-          <a href="#work">Work</a>
+          <a href="#track-record">Track Record</a>
           <span className="nav-dot" aria-hidden="true">·</span>
-          <a href="#contact" className="nav-cta">
-            Contact <span aria-hidden="true">↗</span>
-          </a>
+          <a href="#contact" className="nav-cta">Contact <span aria-hidden="true">↗</span></a>
         </nav>
       </header>
 
@@ -164,34 +139,24 @@ export default function Home() {
             Executive profile
             <span className="eyebrow-muted">— India / Global</span>
           </p>
-
           <h1 className="hero-name">
             Abhay<br />
             <em>Jain</em>
           </h1>
-
           <p className="hero-role">
             Business Division Leader
             <span className="hero-role-sep" aria-hidden="true">·</span>
             Renesas Electronics
           </p>
-
           <p className="hero-statement">
-            Business and strategy leader across power-management semiconductors,
-            product direction, and ecosystem development.
+            Bridging technology, localised product strategy, and cross-functional operations across power-management semiconductors.
           </p>
-
           <div className="hero-actions">
             <a className="btn btn-dark" href="#contact">
               Start a conversation
               <span className="btn-icon" aria-hidden="true">↗</span>
             </a>
-            <a
-              className="btn btn-outline"
-              href="https://www.linkedin.com/in/abhay-jain-10/"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a className="btn btn-outline" href="https://www.linkedin.com/in/abhay-jain-10/" target="_blank" rel="noreferrer">
               LinkedIn
               <span className="btn-icon" aria-hidden="true">↗</span>
             </a>
@@ -202,7 +167,7 @@ export default function Home() {
           <SignalField />
           <figure className="portrait-wrap">
             <Image
-              src="/abhay-profile.jpg"
+              src="/Abhay_Jain_profile_pic.jpg"
               alt="Abhay Jain"
               width={480}
               height={640}
@@ -237,10 +202,9 @@ export default function Home() {
               A filter for relevant inbound. These are the active domains.
             </p>
           </div>
-
           <div className="focus-list">
             {focusAreas.map((area, i) => (
-              <div className="focus-item" key={area}>
+              <div className="focus-item" key={i}>
                 <span className="focus-idx">0{i + 1}</span>
                 <p className="focus-text">{area}</p>
               </div>
@@ -250,22 +214,21 @@ export default function Home() {
       </section>
 
       {/* ── TRACK RECORD ───────────────────────────────────────────── */}
-      <section id="track" className="section section-alt">
+      <section id="track-record" className="section section-alt">
         <div className="wrap section-grid reveal">
           <div>
             <p className="section-number">02</p>
             <p className="section-label">Track Record</p>
             <h2 className="section-h2">
-              Useful<br />
-              range.<br />
-              <em>Clear ownership.</em>
+              Proof,<br />
+              not<br />
+              <em>volume.</em>
             </h2>
           </div>
-
           <div className="track-list">
-            {trackRecord.map((item, i) => (
+            {trackRecord.map((item) => (
               <article className="track-item" key={item.label}>
-                <span className="track-marker">0{i + 1}</span>
+                <span className="track-marker track-stat">{item.stat}</span>
                 <div>
                   <p className="track-label">{item.label}</p>
                   <p className="track-detail">{item.detail}</p>
@@ -283,15 +246,14 @@ export default function Home() {
             <div>
               <p className="section-label">03 · Selected Work</p>
               <h2 className="section-h2">
-                Proof,<br />
-                <em>not volume.</em>
+                Published<br />
+                <em>record.</em>
               </h2>
             </div>
             <p className="work-aside">
-              A small set of work that shows the operating range. Curated, not exhaustive.
+              Research, technical writing, and patents that sit behind the operating profile.
             </p>
           </div>
-
           <div className="work-list">
             {selectedWork.map((work, i) => (
               <a
@@ -305,11 +267,40 @@ export default function Home() {
                 <span className="work-num">0{i + 1}</span>
                 <span className="work-type">{work.type}</span>
                 <span className="work-title">{work.title}</span>
-                <span className="work-context">{work.context}</span>
+                <span className="work-context">{work.source}</span>
                 <span className="work-view">View <span aria-hidden="true">↗</span></span>
               </a>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── BANNER IMAGE SECTION ────────────────────────────────────── */}
+      <section className="banner-section">
+        <div className="banner-img-wrap">
+          <Image
+            src="/Abhay_Jain_banner_pic.jpg"
+            alt="Abhay Jain presenting technical frameworks"
+            fill
+            className="banner-img"
+            sizes="100vw"
+          />
+          <div className="banner-overlay" />
+        </div>
+        <div className="wrap banner-content">
+          <h2 className="banner-h2">Inbound</h2>
+          <p className="banner-sub">
+            Open to precise conversations regarding advisory positions,
+            semiconductor ecosystem strategies, or institutional alignment.
+          </p>
+          <a
+            className="btn btn-dark"
+            href="https://www.linkedin.com/in/abhay-jain-10/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Connect on LinkedIn <span aria-hidden="true">↗</span>
+          </a>
         </div>
       </section>
 
@@ -325,30 +316,23 @@ export default function Home() {
               <em>systems.</em>
             </h2>
           </div>
-
           <div className="aff-grid">
             <div className="aff-block">
               <p className="aff-head">Current</p>
               <ul className="aff-list">
-                {affiliations.current.map((a) => (
-                  <li key={a}>{a}</li>
-                ))}
+                {affiliations.current.map((a) => <li key={a}>{a}</li>)}
               </ul>
             </div>
             <div className="aff-block">
               <p className="aff-head">Earlier</p>
               <ul className="aff-list">
-                {affiliations.earlier.map((a) => (
-                  <li key={a}>{a}</li>
-                ))}
+                {affiliations.earlier.map((a) => <li key={a}>{a}</li>)}
               </ul>
             </div>
             <div className="aff-block">
               <p className="aff-head">Education</p>
               <ul className="aff-list">
-                {affiliations.education.map((a) => (
-                  <li key={a}>{a}</li>
-                ))}
+                {affiliations.education.map((a) => <li key={a}>{a}</li>)}
               </ul>
             </div>
           </div>
@@ -369,11 +353,10 @@ export default function Home() {
               <em>Begin there.</em>
             </h2>
           </div>
-
           <div className="contact-side">
             <p className="contact-desc">
-              For advisory, operating, semiconductor ecosystem, or
-              institutional conversations. One or two methods only.
+              For advisory, operating, semiconductor ecosystem, or institutional conversations.
+              Have a new idea, want to discuss an opportunity, or share thoughts?
             </p>
             <div className="contact-actions">
               <a

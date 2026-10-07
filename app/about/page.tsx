@@ -4,125 +4,128 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'About Abhay Jain — Executive Profile',
-  description:
-    'Career, education, recognitions, and selected publications of Abhay Jain. Business and strategy leader across semiconductors, energy, and institutional markets.',
+  description: 'Career, education, recognitions, and selected publications of Abhay Jain — business and strategy leader across semiconductors, energy, and institutional markets.',
   alternates: { canonical: '/about' },
 };
 
 /* ── data ────────────────────────────────────────────────────────────────── */
-const career = [
+const workExperience = [
   {
-    marker: 'Now',
-    company: 'Renesas Electronics',
-    role: 'Business Division Leader',
-    detail:
-      'Leads strategy, product direction, and commercial execution for power-management semiconductor businesses in India. Works across product definition, applications, market development, and cross-functional teams spanning India and global operations.',
-  },
-  {
-    marker: '01',
-    company: 'McKinsey & Company',
+    logo: '/mckinsey_logo.png',
+    company: 'McKinsey & Co.',
     role: 'Consultant',
-    detail:
-      'Delivered strategy and operations engagements across technology, energy, and manufacturing clients. Experience across India, North America, and Asia-Pacific markets.',
+    alt: 'McKinsey & Company',
   },
   {
-    marker: '02',
+    logo: '/mitsubishi_logo.png',
     company: 'Mitsubishi Heavy Industries',
-    role: 'Sales & Marketing Executive · Compressor & Steam Turbine Engineer',
-    detail:
-      'Combined hands-on engineering work in compressors and steam turbines with commercial responsibility for industrial accounts. Based in Japan for four years.',
+    role: 'Sales & Marketing Executive; Compressor & Steam Turbine Engineer',
+    alt: 'Mitsubishi Heavy Industries',
   },
   {
-    marker: '03',
-    company: 'Earlier roles',
-    role: 'NextEra Energy · AutoGrid · Sparkz · Averda',
-    detail:
-      'Experience across renewable energy strategy, energy software, product and business development, and COO-office operations. Exposure to scale, early-stage, and institutional organisations.',
+    logo: '/nextera_logo.png',
+    company: 'NextEra Energy',
+    role: 'MBA Intern, Renewable Energy Innovation and Strategy',
+    alt: 'NextEra Energy',
+  },
+  {
+    logo: '/autogrid_logo.png',
+    company: 'AutoGrid',
+    role: 'Summer Intern, Solutions and Data Science',
+    alt: 'AutoGrid',
+  },
+  {
+    logo: '/sparkz_logo.png',
+    company: 'Sparkz Inc.',
+    role: 'Business and Product Development Manager (Intern)',
+    alt: 'Sparkz Inc.',
+  },
+  {
+    logo: '/averda_logo.png',
+    company: 'Averda',
+    role: 'Operations Intern, COO Office',
+    alt: 'Averda',
   },
 ];
 
 const education = [
   {
-    school: 'Stanford University',
-    program: 'MBA',
-    note: 'Graduate School of Business',
+    logo: '/iit_logo.png',
+    school: 'IIT Kanpur',
+    degree: 'B.Tech — Materials & Metallurgical Engineering',
+    alt: 'IIT Kanpur',
+    whiteBg: true,
   },
   {
+    logo: '/stanford_logo.png',
     school: 'Stanford University',
-    program: 'MS in Environment and Resources',
-    note: 'Interdisciplinary focus on energy, sustainability, and systems.',
+    degree: 'MBA, Graduate School of Business',
+    alt: 'Stanford University',
+    whiteBg: false,
   },
   {
-    school: 'Indian Institute of Technology, Kanpur',
-    program: 'B.Tech — Materials & Metallurgical Engineering',
-    note: 'Engineering foundation with a strong quantitative and systems orientation.',
+    logo: '/stanford_earth_logo.png',
+    school: 'Stanford University',
+    degree: 'MS in Environment and Resources, School of Earth',
+    alt: 'Stanford University — Earth',
+    whiteBg: false,
   },
-];
-
-const recognitions = [
-  'K. C. Mahindra Scholarship for Graduate Studies, 2017',
-  'J. N. Tata Scholarship for Graduate Studies, 2017',
-  'Social Management Immersion Fellowship, Stanford University, 2018',
-  'Certificate in Public Management and Social Innovation, Stanford, 2019',
-  'InSite Fellowship, 2019',
 ];
 
 const publications = [
   {
-    group: 'Research',
     title: 'Global surveys of consumer sentiment during the coronavirus crisis',
     source: 'McKinsey & Company · 2020',
     href: 'https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/a-global-view-of-how-consumer-behavior-is-changing-amid-covid-19',
   },
   {
-    group: 'Research',
+    title: 'Technical Challenges for Compressors and Steam Turbines in Mega Ethylene Plants',
+    source: 'Texas A&M Turbomachinery Symposium · 2016',
+    href: 'https://oaktrust.library.tamu.edu/items/05594529-135c-421d-9e9b-1ca4e1ad9cce',
+  },
+  {
+    title: 'Emergency Shutoff Device and System Patent',
+    source: 'Mitsubishi Heavy Industries · 2016',
+    href: 'https://patentscope.wipo.int/search/en/detail.jsf?docId=WO2016084140',
+  },
+  {
+    title: 'The clock stops ticking, Vox-populi',
+    source: 'IIT Kanpur · 2016',
+    href: 'https://voxiitk.com/the-clock-stops-ticking/',
+  },
+  {
+    title: 'Emergency Shut-Off Device Patent',
+    source: 'Mitsubishi Heavy Industries · 2017',
+    href: 'https://patentscope.wipo.int/search/en/detail.jsf?docId=WO2017104037',
+  },
+  {
     title: 'Low Hanging Fruit: VC Investment Trends in Food Waste',
     source: 'Stanford EIPER · 2020',
     href: 'https://earth.stanford.edu/eiper',
   },
-  {
-    group: 'Research',
-    title: 'Stanford experts discuss challenges in disposing of waste',
-    source: 'Stanford News · 2019',
-    href: 'https://news.stanford.edu/stories/2019/04/reassessing-waste-not',
-  },
-  {
-    group: 'Technical paper',
-    title: 'Compressors and steam turbines in mega ethylene plants',
-    source: 'Texas A&M Turbomachinery Symposium · 2016',
-    href: 'https://oaktrust.library.tamu.edu/handle/1969.1/160303',
-  },
-  {
-    group: 'Patents',
-    title: 'Emergency shut-off device and system',
-    source: 'Mitsubishi Heavy Industries · 2016–17',
-    href: 'https://patents.google.com/patent/US10443513B2/en',
-  },
 ];
 
-/* ── route map SVG ───────────────────────────────────────────────────────── */
+const awards = [
+  { title: 'K.C. Mahindra Scholarship', note: 'For Graduate Studies · 2017' },
+  { title: 'J.N. Tata Scholarship', note: 'For Graduate Studies · 2017' },
+  { title: 'Social Management Immersion', note: 'Fellowship, Stanford · 2018' },
+  { title: 'Certificate in Public Management & Social Innovation', note: 'Stanford · 2019' },
+  { title: 'InSite Fellowship', note: '2019' },
+];
+
+/* ── Route Map SVG ───────────────────────────────────────────────────────── */
 function RouteMap() {
   return (
-    <div
-      className="route-map"
-      aria-label="A route from the Himalayan foothills through Japan and the United States to India"
-    >
+    <div className="route-map" aria-label="Career geography — Himalayan foothills, Japan, United States, India">
       <svg viewBox="0 0 640 520" fill="none">
-        {/* grid */}
         <path className="route-grid" d="M80 130H560M80 260H560M80 390H560" />
         <path className="route-grid" d="M160 60V460M320 60V460M480 60V460" />
-
-        {/* journey path */}
-        <path
-          className="route-path"
-          d="M96 375C172 335 155 222 245 256C332 288 305 116 400 160C486 200 474 348 552 132"
-        />
+        <path className="route-path" d="M96 375C172 335 155 222 245 256C332 288 305 116 400 160C486 200 474 348 552 132" />
         <circle className="route-node" cx="96"  cy="375" r="5" />
         <circle className="route-node" cx="245" cy="256" r="5" />
         <circle className="route-node" cx="400" cy="160" r="5" />
         <circle className="route-node" cx="552" cy="132" r="5" />
       </svg>
-
       <span className="route-lbl route-lbl-1">Himalayan foothills</span>
       <span className="route-lbl route-lbl-2">Japan · 4 years</span>
       <span className="route-lbl route-lbl-3">United States</span>
@@ -147,11 +150,9 @@ export default function AboutPage() {
           <span className="nav-dot" aria-hidden="true">·</span>
           <Link href="/#focus">Focus</Link>
           <span className="nav-dot" aria-hidden="true">·</span>
-          <Link href="/#work">Work</Link>
+          <Link href="/#track-record">Track Record</Link>
           <span className="nav-dot" aria-hidden="true">·</span>
-          <Link href="/#contact" className="nav-cta">
-            Contact <span aria-hidden="true">↗</span>
-          </Link>
+          <Link href="/#contact" className="nav-cta">Contact <span aria-hidden="true">↗</span></Link>
         </nav>
       </header>
 
@@ -160,18 +161,17 @@ export default function AboutPage() {
         <div className="about-hero-copy">
           <p className="eyebrow">
             <span className="eyebrow-line" aria-hidden="true" />
-            About
-            <span className="eyebrow-muted">— Full profile</span>
+            Executive Profile
+            <span className="eyebrow-muted">— Full biography</span>
           </p>
           <h1 className="about-h1">
-            A career<br />
-            across<br />
-            <em>systems.</em>
+            A global<br />
+            professional<br />
+            <em>at scale.</em>
           </h1>
           <p className="about-lede">
-            Abhay works at the intersection of technology, markets, and
-            execution — moving between the technical detail of a product and
-            the institutional decisions that determine whether it scales.
+            Comprehensive expertise in management consulting, energy sustainability,
+            deep-tech hardware, and manufacturing operations across international markets.
           </p>
           <p className="about-origin">
             From the foothills of the Himalayas · Japan · United States · India
@@ -180,9 +180,9 @@ export default function AboutPage() {
 
         <div className="about-visual hero-visual">
           <RouteMap />
-          <figure className="portrait-wrap" style={{ width: 'min(60%, 300px)', marginTop: '28px' }}>
+          <figure className="portrait-wrap" style={{ width: 'min(60%, 280px)', marginTop: '24px' }}>
             <Image
-              src="/abhay-profile.jpg"
+              src="/Abhay_Jain_profile_pic.jpg"
               alt="Abhay Jain"
               width={400}
               height={533}
@@ -200,38 +200,40 @@ export default function AboutPage() {
       {/* ── STATEMENT BAND ─────────────────────────────────────────── */}
       <section className="about-statement">
         <div className="wrap statement-inner">
-          <div>
-            <p className="section-label" style={{ color: 'rgba(180,83,42,.8)' }}>
-              The throughline
-            </p>
-          </div>
+          <p className="section-label" style={{ color: 'rgba(180,83,42,.8)' }}>The throughline</p>
           <p className="statement-text">
-            The work has changed industries, but the question has stayed
-            consistent: how do complex systems become useful, adoptable, and durable?
+            With early roots in the Himalayan region of India, a four-year tenure in Japan,
+            graduate studies in the United States — the work has changed industries, but the
+            question has stayed consistent: how do complex systems become useful, adoptable, and durable?
           </p>
         </div>
       </section>
 
-      {/* ── CAREER / EXPERIENCE ────────────────────────────────────── */}
-      <section className="section">
-        <div className="wrap section-grid reveal">
-          <div>
+      {/* ── WORK EXPERIENCE ────────────────────────────────────────── */}
+      <section id="pedigree" className="section">
+        <div className="wrap reveal">
+          <div className="logo-section-header">
             <p className="section-number">01</p>
-            <p className="section-label">Experience</p>
+            <p className="section-label">Work Experience</p>
             <h2 className="section-h2">
               Operating<br />
               <em>range.</em>
             </h2>
           </div>
-          <div className="career-list">
-            {career.map((item) => (
-              <article className="career-item" key={`${item.company}-${item.role}`}>
-                <span className="career-mk">{item.marker}</span>
-                <div>
-                  <h3 className="career-co">{item.company}</h3>
-                  <p className="career-role">{item.role}</p>
-                  <p className="career-detail">{item.detail}</p>
+          <div className="logo-grid">
+            {workExperience.map((item) => (
+              <article className="logo-card" key={item.company}>
+                <div className="logo-card-img-wrap">
+                  <Image
+                    src={item.logo}
+                    alt={item.alt}
+                    width={160}
+                    height={60}
+                    className="logo-card-img"
+                  />
                 </div>
+                <h3 className="logo-card-name">{item.company}</h3>
+                <p className="logo-card-role">{item.role}</p>
               </article>
             ))}
           </div>
@@ -240,8 +242,8 @@ export default function AboutPage() {
 
       {/* ── EDUCATION ──────────────────────────────────────────────── */}
       <section className="section section-alt">
-        <div className="wrap section-grid reveal">
-          <div>
+        <div className="wrap reveal">
+          <div className="logo-section-header">
             <p className="section-number">02</p>
             <p className="section-label">Education</p>
             <h2 className="section-h2">
@@ -249,61 +251,42 @@ export default function AboutPage() {
               <em>grounding.</em>
             </h2>
           </div>
-          <div className="edu-list">
-            {education.map((item, i) => (
-              <article className="edu-item" key={`${item.school}-${item.program}`}>
-                <span className="edu-num">0{i + 1}</span>
-                <div>
-                  <h3 className="edu-school">{item.school}</h3>
-                  <p className="edu-prog">{item.program}</p>
-                  <p className="edu-note">{item.note}</p>
+          <div className="logo-grid logo-grid-3">
+            {education.map((item) => (
+              <article className="logo-card" key={`${item.school}-${item.degree}`}>
+                <div className={`logo-card-img-wrap${item.whiteBg ? ' logo-card-img-wrap--white' : ''}`}>
+                  <Image
+                    src={item.logo}
+                    alt={item.alt}
+                    width={160}
+                    height={60}
+                    className="logo-card-img"
+                  />
                 </div>
+                <h3 className="logo-card-name">{item.school}</h3>
+                <p className="logo-card-role">{item.degree}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── RECOGNITION ────────────────────────────────────────────── */}
-      <section className="section">
-        <div className="wrap section-grid reveal">
-          <div>
+      {/* ── HONORS & PUBLICATIONS ──────────────────────────────────── */}
+      <section id="honors" className="section">
+        <div className="wrap reveal">
+          <div className="logo-section-header">
             <p className="section-number">03</p>
-            <p className="section-label">Recognition</p>
+            <p className="section-label">Honors & Published Work</p>
             <h2 className="section-h2">
               Signals<br />
               of<br />
               <em>trust.</em>
             </h2>
           </div>
-          <div className="rec-list">
-            {recognitions.map((item, i) => (
-              <div className="rec-item" key={item}>
-                <span className="rec-idx">0{i + 1}</span>
-                <p className="rec-text">{item}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* ── PUBLICATIONS & PATENTS (dark) ──────────────────────────── */}
-      <section className="section section-dark">
-        <div className="wrap section-grid reveal">
-          <div>
-            <p className="section-number" style={{ color: 'rgba(180,83,42,.85)' }}>04</p>
-            <p className="section-label" style={{ color: 'rgba(255,255,255,.4)' }}>
-              Publications & Patents
-            </p>
-            <h2 className="section-h2">
-              Selected<br />
-              <em>work.</em>
-            </h2>
-            <p className="section-sub">
-              Research, technical writing, and inventions that sit behind the operating profile.
-            </p>
-          </div>
-          <div className="pub-list">
+          {/* Publications */}
+          <p className="sub-head">Publications & Patents</p>
+          <div className="pub-list pub-list-about">
             {publications.map((item, i) => (
               <a
                 className="pub-item"
@@ -314,22 +297,35 @@ export default function AboutPage() {
                 aria-label={`View: ${item.title}`}
               >
                 <span className="pub-idx">0{i + 1}</span>
-                <span className="pub-grp">{item.group}</span>
                 <span className="pub-title">{item.title}</span>
                 <span className="pub-src">{item.source}</span>
                 <span className="pub-view">View <span aria-hidden="true">↗</span></span>
               </a>
             ))}
           </div>
+
+          {/* Awards */}
+          <p className="sub-head" style={{ marginTop: '56px' }}>Awards & Fellowships</p>
+          <div className="rec-list">
+            {awards.map((item, i) => (
+              <div className="rec-item" key={item.title}>
+                <span className="rec-idx">0{i + 1}</span>
+                <div>
+                  <p className="rec-text" style={{ fontWeight: 500 }}>{item.title}</p>
+                  <p className="rec-text" style={{ color: 'var(--ink-60)', fontSize: '13px', marginTop: '2px' }}>{item.note}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* ── BEYOND WORK ────────────────────────────────────────────── */}
-      <section className="section">
+      <section className="section section-alt">
         <div className="wrap section-grid reveal">
           <div>
-            <p className="section-number">05</p>
-            <p className="section-label">Beyond work</p>
+            <p className="section-number">04</p>
+            <p className="section-label">Beyond Work</p>
             <h2 className="section-h2">
               Keep a<br />
               wider<br />
@@ -342,20 +338,44 @@ export default function AboutPage() {
               Graduate studies in the United States. Now based in India.
             </p>
             <p className="rec-text" style={{ marginBottom: '16px', color: 'var(--ink-60)' }}>
-              Outside formal roles: table tennis, pool, golf, road trips, and dance.
+              Outside formal roles: competitive table tennis, pool, golf, road trips, and international dance performances.
             </p>
             <p className="beyond-cap">Personal detail, kept in proportion.</p>
           </div>
         </div>
       </section>
 
-      {/* ── CONTACT (dark) ─────────────────────────────────────────── */}
+      {/* ── BANNER ─────────────────────────────────────────────────── */}
+      <section className="banner-section">
+        <div className="banner-img-wrap">
+          <Image
+            src="/Abhay_Jain_banner_pic.jpg"
+            alt="Abhay Jain presenting technical frameworks"
+            fill
+            className="banner-img"
+            sizes="100vw"
+          />
+          <div className="banner-overlay" />
+        </div>
+        <div className="wrap banner-content">
+          <h2 className="banner-h2">Inbound</h2>
+          <p className="banner-sub">
+            Open to precise conversations regarding advisory positions,
+            semiconductor ecosystem strategies, or institutional alignment.
+          </p>
+          <a className="btn btn-dark" href="https://www.linkedin.com/in/abhay-jain-10/" target="_blank" rel="noreferrer">
+            Connect on LinkedIn <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </section>
+
+      {/* ── CONTACT ────────────────────────────────────────────────── */}
       <section className="contact-section">
         <div className="wrap contact-inner">
           <div>
             <p className="eyebrow contact-eyebrow">
               <span className="eyebrow-line" aria-hidden="true" />
-              06 · Contact
+              05 · Contact
             </p>
             <h2 className="contact-h2">
               Relevant<br />
@@ -368,21 +388,13 @@ export default function AboutPage() {
               For advisory, operating, semiconductor ecosystem, or institutional conversations.
             </p>
             <div className="contact-actions">
-              <a
-                className="contact-link contact-link-primary"
-                href="https://www.linkedin.com/in/abhay-jain-10/"
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a className="contact-link contact-link-primary" href="https://www.linkedin.com/in/abhay-jain-10/" target="_blank" rel="noreferrer">
                 Connect on LinkedIn <span aria-hidden="true">↗</span>
               </a>
-              <Link className="contact-link contact-link-secondary" href="/">
-                ← Back to home
-              </Link>
+              <Link className="contact-link contact-link-secondary" href="/">← Back to home</Link>
             </div>
           </div>
         </div>
-
         <footer className="wrap site-footer footer-dark">
           <Link href="/">← Home</Link>
           <span>© {new Date().getFullYear()} Abhay Jain</span>
