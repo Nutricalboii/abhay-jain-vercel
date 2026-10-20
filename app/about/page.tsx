@@ -60,7 +60,11 @@ export default function AboutPage() {
                   <div className="career-period">{item.period}</div>
                   <div className="career-content">
                     <div className="career-heading">
-                      {item.logo ? (
+                      {item.logoLink && item.logo ? (
+                        <a className="renesas-logo-link" href={item.logoLink} target="_blank" rel="noreferrer" aria-label="Renesas Electronics Corporation Web site">
+                          <Image src={item.logo} alt="Renesas Electronics Corporation Web site" width={210} height={50} />
+                        </a>
+                      ) : item.logo ? (
                         <span className="company-mark-box career-logo-box">
                           <Image src={item.logo} alt={item.alt ?? `${item.company} logo`} width={96} height={52} className="career-logo" />
                         </span>

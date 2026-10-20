@@ -406,6 +406,17 @@ button:focus-visible {
   height: 100%;
   object-fit: contain;
 }
+.renesas-logo-link {
+  display: block;
+  flex: 0 0 210px;
+  width: 210px;
+  height: 50px;
+}
+.renesas-logo-link img {
+  display: block;
+  width: 210px;
+  height: 50px;
+}
 .track-label {
   margin-bottom: 6px;
   font-family: var(--font-sans);
@@ -1280,6 +1291,7 @@ button:focus-visible {
   .career-item-current { padding-left: 14px; }
   .career-period, .edu-period { padding-top: 0; color: var(--copper); }
   .career-heading, .edu-content { gap: 14px; }
+  .career-heading:has(.renesas-logo-link) { flex-wrap: wrap; }
   .career-logo-box { width: 58px; height: 40px; }
   .brand-strip-item { font-size: 11px; }
   .brand-strip-logo { width: min(100%, 68px); height: 38px; }

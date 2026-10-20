@@ -113,12 +113,16 @@ export default function Home() {
             {trackRecord.map((item) => (
               <article className="track-item" key={item.company}>
                 <div className="track-company">
-                  {item.logo ? (
+                  {item.logoLink && item.logo ? (
+                    <a className="renesas-logo-link" href={item.logoLink} target="_blank" rel="noreferrer" aria-label="Renesas Electronics Corporation Web site">
+                      <Image src={item.logo} alt="Renesas Electronics Corporation Web site" width={210} height={50} />
+                    </a>
+                  ) : item.logo ? (
                     <span className="company-mark-box">
                       <Image src={item.logo} alt={item.alt ?? `${item.company} logo`} width={96} height={52} />
                     </span>
                   ) : null}
-                  <span>{item.company}</span>
+                  {!item.logoLink ? <span>{item.company}</span> : null}
                 </div>
                 <div className="track-content">
                   <p className="track-label">{item.role} · {item.period}</p>

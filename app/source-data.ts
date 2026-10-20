@@ -6,6 +6,7 @@ export type WorkExperienceItem = {
   period: string;
   detail: string;
   logo?: string;
+  logoLink?: string;
   alt?: string;
   brands?: BrandMark[];
   current?: boolean;
@@ -17,6 +18,8 @@ export const workExperience: WorkExperienceItem[] = [
     role: 'Senior Director, Power & Analog Business Division',
     period: 'Current',
     detail: 'Helped establish and now leads the Power & Analog business in India, spanning semiconductor strategy, new-product development, and strategic partnerships for the Indian market.',
+    logo: '/renesas-link-bl.gif.png',
+    logoLink: 'https://www.renesas.com/',
     current: true,
   },
   {
