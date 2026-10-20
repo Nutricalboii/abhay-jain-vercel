@@ -1,11 +1,22 @@
-export const workExperience = [
+export type BrandMark = { name: string; logo: string; alt: string };
+
+export type WorkExperienceItem = {
+  company: string;
+  role: string;
+  period: string;
+  detail: string;
+  logo?: string;
+  alt?: string;
+  brands?: BrandMark[];
+  current?: boolean;
+};
+
+export const workExperience: WorkExperienceItem[] = [
   {
     company: 'Renesas Electronics',
     role: 'Senior Director, Power & Analog Business Division',
     period: 'Current',
     detail: 'Helped establish and now leads the Power & Analog business in India, spanning semiconductor strategy, new-product development, and strategic partnerships for the Indian market.',
-    logo: '',
-    alt: 'Renesas Electronics',
     current: true,
   },
   {
@@ -29,8 +40,12 @@ export const workExperience = [
     role: 'Energy, technology, and operations internships · 2017–19',
     period: '2017–19',
     detail: 'NextEra Energy (renewable energy innovation and strategy), AutoGrid (solutions and data science), Sparkz (business and product development), and Averda (COO office; 2018).',
-    logo: '',
-    alt: '',
+    brands: [
+      { name: 'NextEra Energy', logo: '/nextera_logo.png', alt: 'NextEra Energy logo' },
+      { name: 'AutoGrid', logo: '/autogrid_logo.png', alt: 'AutoGrid logo' },
+      { name: 'Sparkz', logo: '/sparkz_logo.png', alt: 'Sparkz logo' },
+      { name: 'Averda', logo: '/averda_logo.png', alt: 'Averda logo' },
+    ],
   },
 ];
 
@@ -39,15 +54,16 @@ export const education = [
     school: 'Stanford University',
     degree: 'MBA · MS in Environment and Resources (E-IPER)',
     period: '2017–19',
-    logo: '/stanford_logo.png',
-    alt: 'Stanford University',
+    logos: [
+      { logo: '/stanford_logo.png', alt: 'Stanford Graduate School of Business logo' },
+      { logo: '/stanford_earth_logo.png', alt: 'Stanford Earth logo' },
+    ],
   },
   {
     school: 'IIT Kanpur',
     degree: 'B.Tech, Materials and Metallurgical Engineering',
     period: '2009–13',
-    logo: '/iit_logo.png',
-    alt: 'Indian Institute of Technology Kanpur',
+    logos: [{ logo: '/iit_logo.png', alt: 'Indian Institute of Technology Kanpur logo' }],
   },
 ];
 

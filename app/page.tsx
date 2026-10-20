@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { publications, sourceCopy } from './source-data';
+import { publications, sourceCopy, workExperience } from './source-data';
 
 /* ── real data from source sites ─────────────────────────────────────────── */
 const focusAreas = [
@@ -18,30 +18,8 @@ const focusAreas = [
   },
 ];
 
-const trackRecord = [
-  {
-    stat: 'Renesas Electronics',
-    label: 'Senior Director, Power & Analog · Current',
-    detail: 'Helped establish and now leads the Power & Analog business in India.',
-  },
-  {
-    stat: 'McKinsey & Company',
-    label: 'Engagement Manager · As of 2022',
-    detail: 'Management consulting experience across technology, energy, operations, and consumer research.',
-  },
-  {
-    stat: 'Mitsubishi Heavy Industries',
-    label: 'Engineering and commercial roles · Before 2017',
-    detail: 'Compressor and steam turbine engineering, sales and marketing, and two emergency shut-off patent publications.',
-  },
-  {
-    stat: 'During Stanford',
-    label: 'Internships during Stanford · 2017–19',
-    detail: 'NextEra Energy, AutoGrid, Sparkz, and Averda across energy strategy, data science, business development, and operations.',
-  },
-];
-
 const selectedWork = publications;
+const trackRecord = workExperience;
 
 /* ── page ────────────────────────────────────────────────────────────────── */
 export default function Home() {
@@ -133,11 +111,28 @@ export default function Home() {
           </div>
           <div className="track-list">
             {trackRecord.map((item) => (
-              <article className="track-item" key={item.label}>
-                <div className="track-company">{item.stat}</div>
+              <article className="track-item" key={item.company}>
+                <div className="track-company">
+                  {item.logo ? (
+                    <span className="company-mark-box">
+                      <Image src={item.logo} alt={item.alt ?? `${item.company} logo`} width={96} height={52} />
+                    </span>
+                  ) : null}
+                  <span>{item.company}</span>
+                </div>
                 <div className="track-content">
-                  <p className="track-label">{item.label}</p>
+                  <p className="track-label">{item.role} · {item.period}</p>
                   <p className="track-detail">{item.detail}</p>
+                  {item.brands ? (
+                    <ul className="brand-strip" aria-label="Organizations during Stanford">
+                      {item.brands.map((brand) => (
+                        <li className="brand-strip-item" key={brand.name}>
+                          <span className="brand-strip-logo"><Image src={brand.logo} alt={brand.alt} width={92} height={48} /></span>
+                          <span>{brand.name}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
                 </div>
               </article>
             ))}

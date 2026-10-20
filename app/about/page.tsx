@@ -61,7 +61,9 @@ export default function AboutPage() {
                   <div className="career-content">
                     <div className="career-heading">
                       {item.logo ? (
-                        <Image src={item.logo} alt={item.alt} width={88} height={36} className="career-logo" />
+                        <span className="company-mark-box career-logo-box">
+                          <Image src={item.logo} alt={item.alt ?? `${item.company} logo`} width={96} height={52} className="career-logo" />
+                        </span>
                       ) : null}
                       <div>
                         <h3 className="career-co">{item.company}</h3>
@@ -69,6 +71,16 @@ export default function AboutPage() {
                       </div>
                     </div>
                     <p className="career-detail">{item.detail}</p>
+                    {item.brands ? (
+                      <ul className="brand-strip brand-strip-about" aria-label="Organizations during Stanford">
+                        {item.brands.map((brand) => (
+                          <li className="brand-strip-item" key={brand.name}>
+                            <span className="brand-strip-logo"><Image src={brand.logo} alt={brand.alt} width={92} height={48} /></span>
+                            <span>{brand.name}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
                   </div>
                 </article>
               ))}
@@ -84,7 +96,13 @@ export default function AboutPage() {
                 <article className="edu-item" key={item.school}>
                   <div className="edu-period">{item.period}</div>
                   <div className="edu-content">
-                    <Image src={item.logo} alt={item.alt} width={112} height={56} className="edu-logo" />
+                    <div className="edu-marks" aria-label={`${item.school} marks`}>
+                      {item.logos.map((mark) => (
+                        <span className="edu-logo-box" key={mark.logo}>
+                          <Image src={mark.logo} alt={mark.alt} width={112} height={56} className="edu-logo" />
+                        </span>
+                      ))}
+                    </div>
                     <div>
                       <h3 className="edu-school">{item.school}</h3>
                       <p className="edu-prog">{item.degree}</p>

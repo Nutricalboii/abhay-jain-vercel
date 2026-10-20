@@ -375,11 +375,36 @@ button:focus-visible {
 }
 .track-item > * { min-width: 0; }
 .track-company {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
   font-family: var(--font-display, Georgia, serif);
   font-size: 22px;
   line-height: 1.2;
   letter-spacing: -.025em;
   color: var(--ink);
+}
+.company-mark-box,
+.brand-strip-logo,
+.edu-logo-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  background: #fff;
+  border: 1px solid rgba(20, 24, 28, .08);
+}
+.company-mark-box {
+  width: 64px;
+  height: 44px;
+  padding: 5px;
+}
+.company-mark-box img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 .track-label {
   margin-bottom: 6px;
@@ -394,6 +419,38 @@ button:focus-visible {
   line-height: 1.55;
   color: var(--ink-60);
   max-width: 620px;
+}
+.brand-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.brand-strip-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex: 0 1 120px;
+  min-width: 0;
+  color: var(--ink-60);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: center;
+}
+.brand-strip-logo {
+  width: min(100%, 72px);
+  height: 42px;
+  padding: 5px;
+}
+.brand-strip-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 /* ─── SELECTED WORK ─────────────────────────────────────────────────────────── */
@@ -1089,13 +1146,15 @@ button:focus-visible {
   min-width: 0;
 }
 .career-logo {
-  width: 76px;
-  height: 38px;
-  flex: 0 0 76px;
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  object-position: left center;
-  filter: grayscale(1);
-  opacity: .78;
+}
+.career-logo-box {
+  width: 72px;
+  height: 48px;
+  padding: 5px;
 }
 .career-co {
   margin-bottom: 4px;
@@ -1120,14 +1179,22 @@ button:focus-visible {
   border-bottom-color: var(--ink-15);
 }
 .edu-content { align-items: center; }
-.edu-logo {
-  width: 88px;
+.edu-marks {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+.edu-logo-box {
+  width: 76px;
   height: 48px;
-  flex: 0 0 88px;
+  padding: 5px;
+}
+.edu-logo {
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  object-position: left center;
-  filter: grayscale(1);
-  opacity: .8;
 }
 .edu-school { margin-bottom: 5px; font-size: 24px; }
 .edu-prog { margin: 0; font-size: 14px; font-weight: 500; letter-spacing: 0; line-height: 1.5; text-transform: none; }
@@ -1213,9 +1280,12 @@ button:focus-visible {
   .career-item-current { padding-left: 14px; }
   .career-period, .edu-period { padding-top: 0; color: var(--copper); }
   .career-heading, .edu-content { gap: 14px; }
-  .career-logo { width: 54px; flex-basis: 54px; }
+  .career-logo-box { width: 58px; height: 40px; }
+  .brand-strip-item { font-size: 11px; }
+  .brand-strip-logo { width: min(100%, 68px); height: 38px; }
   .career-co { font-size: 22px; }
-  .edu-logo { width: 64px; flex-basis: 64px; }
+  .edu-marks { flex-wrap: wrap; }
+  .edu-logo-box { width: 64px; height: 42px; }
   .edu-school { font-size: 20px; }
   .recognition-list .recognition-item { grid-template-columns: 1fr; gap: 6px; padding-block: 18px; }
   .recognition-meta { justify-content: flex-start; gap: 14px; font-size: 12px; }
