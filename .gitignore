@@ -14,6 +14,7 @@
 # next.js
 /.next/
 /.vinext/
+/.wrangler/
 /out/
 
 # misc
@@ -33,6 +34,5 @@ yarn-error.log*
 .vercel
 next-env.d.ts
 /dist/
-/.wrangler/
 /outputs/
 /work/

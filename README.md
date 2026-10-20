@@ -1,11 +1,10 @@
-# Abhay Jain — Business & Strategy
+# Abhay Jain — Power & Analog Leadership
 
 Editorial portfolio website for Abhay Jain, designed for senior executives, board members, investors, government and ecosystem partners, and founders evaluating an advisory or operating conversation.
 
-## Preview
+## Site
 
-- Private preview: https://abhay-jain-executive-profile.workspace-027574.chatgpt.site
-- Production domain: https://abhayjain.net (not changed yet)
+- Canonical domain: https://abhayjain.net
 - Vercel preview: https://abhay-jain-vercel.vercel.app
 
 ## Positioning
@@ -18,16 +17,17 @@ The design prioritizes:
 - Clear current focus and operating range
 - Curated proof instead of exhaustive history
 - High contrast, whitespace, and restrained motion
-- Source parity without importing the old builder's visual noise
-- Preview-only contact and subscription states until a real delivery service is approved
+- Source-backed career and education details, without invented scale or P&L figures
+- One professional contact channel: LinkedIn
 
 ## Pages
 
-- `/` — positioning, source-site visual archive, current focus, track record, selected work, affiliations, and contact
-- `/about-me` — full source biography, all work experience, education, five recognitions, seven publications/patents, background, and source placeholders
-- `/about` — compatibility alias for the About page
-- `/ideas-frameworks` — source page title, original introduction, empty archive state, and subscription preview
-- `/contact-me` — original contact copy, all source form fields, social profiles, and local preview submission state
+- `/` — current Renesas role, focus, selected experience, selected work, and a single contact CTA
+- `/about-me` — concise biography, experience timeline, education, five recognitions, and five curated publications/patent records
+- `/about` — permanent redirect to `/about-me`
+- `/contact-me` — LinkedIn contact page; no nonfunctional form
+
+The former `/ideas-frameworks` URL permanently redirects to selected work. The source page had no verifiable article archive; the portfolio does not create one.
 
 ## Visual system
 
@@ -36,9 +36,8 @@ The design prioritizes:
 - Copper accent: `#B4532A`
 - Serif display typography paired with a clean sans-serif body face
 - Hairline rules and editorial grid instead of card-heavy UI
-- Pure SVG waveform in the hero that moves from noisy to regulated
-- SVG signal thread and route-line graphic on the About page
-- Reduced-motion support via `prefers-reduced-motion`
+- Portrait-led hero with a restrained editorial frame
+- No decorative looping motion; interactions are limited to subtle hover/focus states
 
 Avoid adding gradients, glassmorphism, particles, 3D scenes, cursor effects, loud parallax, or decorative animation that does not clarify the work.
 
@@ -60,7 +59,7 @@ npm run lint
 npm run build
 ```
 
-Vercel uses the static export in `dist/client`, configured through `vercel.json`.
+The project uses the standard Next.js App Router and Vercel's native Next.js build detection.
 
 ## Project structure
 
@@ -69,30 +68,28 @@ app/
   page.tsx             Home page and homepage content
   about/page.tsx       About page and selected biography
   about-me/page.tsx    Source-compatible About route
-  ideas-frameworks/    Source-compatible Ideas route
   contact-me/          Source-compatible Contact route
   source-data.ts       Verified source copy, links, images, roles, education, and publications
-  components/          Local contact and subscription preview forms
   globals.css          Design tokens, layout, responsive styles, and motion
   layout.tsx           Metadata and font setup
 public/
-  abhay-profile.jpg    Approved profile portrait used by the site
+  Abhay_Jain_profile_pic.jpg    Profile portrait used by the site
+  abhay-kalam-clean.webp        Responsive, compressed conversation photo
   favicon.svg          AJ favicon
   robots.txt           Robots policy
   sitemap.xml          Source-compatible route sitemap
-.openai/hosting.json   Sites project configuration
 ```
 
 ## Content guardrails
 
-The site uses a factual role descriptor until Abhay confirms the exact current title. The public email is intentionally omitted until confirmed. Do not replace either with guesses. Do not add metrics unless they are verified and approved for publication.
+The current Renesas title and India business-building scope are sourced from Renesas’s public speaker biography. Stanford GSB identifies Abhay as an Engagement Manager at McKinsey; the site uses a point-in-time label rather than implying an unverified employment range. Confirm exact employment dates and any P&L, team-size, or business-scale figures with Abhay before adding them. The public email is intentionally omitted until confirmed.
 
-The source material is the existing `abhayjain.net` site, public LinkedIn profile, and the original publication, technical paper, patent, social, and image links. The full source content is now represented in the rebuilt routes. Do not invent a current title, email, metrics, projects, or publication details.
+The source material is the existing `abhayjain.net` site, public LinkedIn profile, Renesas’s speaker biography, Stanford GSB, and the original publication, technical paper, patent, and image links. Do not invent dates, metrics, projects, or publication details.
 
 ## Handoff notes for Bolt
 
 1. Preserve the source-compatible route structure unless there is a clear content reason to change it.
-2. Keep the current editorial visual language, SVG motion system, and locally stored source images.
+2. Keep the editorial visual language and locally stored source images.
 3. Run `npm run lint` and `npm run build` after changes.
 4. Do not change `abhayjain.net` DNS or deployment settings without approval.
-5. Before final launch, replace the general role descriptor and omitted email with confirmed details if Abhay approves them.
+5. Before final launch, confirm exact career-date ranges and any publishable business scope or metrics with Abhay.

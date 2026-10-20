@@ -1,95 +1,47 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { publications, socialLinks, sourceCopy } from './source-data';
+import { publications, sourceCopy } from './source-data';
 
 /* ── real data from source sites ─────────────────────────────────────────── */
 const focusAreas = [
   {
-    title: 'Product and business strategy',
-    detail: 'Across technology, energy, sustainability, and manufacturing.',
+    title: 'Power & Analog in India',
+    detail: 'Building Renesas’ Power & Analog business for the Indian market.',
   },
   {
-    title: 'Commercial execution',
-    detail: 'Product direction, market adoption, growth, and cross-functional execution.',
+    title: 'Semiconductor strategy',
+    detail: 'Connecting product development and commercial strategy with local market needs.',
   },
   {
-    title: 'Systems and partnerships',
-    detail: 'Making complex ideas useful, adoptable, and durable.',
+    title: 'Partnerships',
+    detail: 'Developing strategic partnerships that bring global capabilities to customers in India.',
   },
 ];
 
 const trackRecord = [
   {
-    stat: 'Strategy',
-    label: 'Management consulting',
-    detail: 'Consulting experience across growth, operations, technology, energy, and consumer research at McKinsey & Company.',
+    stat: 'Renesas Electronics',
+    label: 'Senior Director, Power & Analog · Current',
+    detail: 'Helped establish and now leads the Power & Analog business in India.',
   },
   {
-    stat: 'Industry',
-    label: 'Engineering and commercial execution',
-    detail: 'Engineering, sales, and marketing work on compressors and steam turbines at Mitsubishi Heavy Industries.',
+    stat: 'McKinsey & Company',
+    label: 'Engagement Manager · As of 2022',
+    detail: 'Management consulting experience across technology, energy, operations, and consumer research.',
   },
   {
-    stat: 'Energy',
-    label: 'Innovation and sustainability',
-    detail: 'Renewable energy innovation, strategy, waste, and sustainability work across operating and research settings.',
+    stat: 'Mitsubishi Heavy Industries',
+    label: 'Engineering and commercial roles · Before 2017',
+    detail: 'Compressor and steam turbine engineering, sales and marketing, and two emergency shut-off patent publications.',
   },
   {
-    stat: 'Research',
-    label: 'Published work and patents',
-    detail: 'Selected research, technical writing, and patent work spanning industrial systems, consumer sentiment, and food waste.',
+    stat: 'During Stanford',
+    label: 'Internships during Stanford · 2017–19',
+    detail: 'NextEra Energy, AutoGrid, Sparkz, and Averda across energy strategy, data science, business development, and operations.',
   },
 ];
 
-const selectedWork = publications.map((item, index) => ({
-  ...item,
-  type: index > 3 ? 'Publication / patent' : index === 3 ? 'Technical paper' : 'Research',
-}));
-
-const affiliations = {
-  current: ['Business & strategy'],
-  earlier: ['McKinsey & Company', 'Mitsubishi Heavy Industries', 'NextEra Energy', 'AutoGrid', 'Sparkz Inc.', 'Averda'],
-  education: ['Stanford University (MBA)', 'Stanford University (MS Earth)', 'IIT Kanpur (B.Tech)'],
-};
-
-/* ── SVG decorations ─────────────────────────────────────────────────────── */
-function SignalField() {
-  return (
-    <div className="signal-field" aria-hidden="true">
-      <svg viewBox="0 0 640 640" fill="none">
-        <path className="field-grid-x" d="M0 160H640M0 320H640M0 480H640" />
-        <path className="field-crosshair" d="M56 320H584M320 56V584" />
-        <path
-          className="field-wave-raw"
-          d="M0 321C32 321 30 258 62 258C93 258 90 382 121 382C151 382 148 286 180 286C210 286 213 355 243 355C273 355 275 274 306 274C337 274 339 360 370 360C400 360 403 291 433 291C463 291 465 330 495 330C523 330 525 320 555 320C580 320 590 320 640 320"
-        />
-        <path
-          className="field-wave-clean"
-          d="M0 320C90 320 130 320 200 320C270 320 295 319 360 320C430 321 480 320 640 320"
-        />
-        <circle className="field-node" cx="180" cy="286" r="4" />
-        <circle className="field-node" cx="370" cy="360" r="4" />
-        <circle className="field-core-dot" cx="320" cy="320" r="6" />
-        <circle style={{ stroke: 'var(--copper)', strokeOpacity: '.4', strokeWidth: '1', fill: 'none' }} cx="320" cy="320" r="18" />
-        <circle style={{ stroke: 'var(--copper)', strokeOpacity: '.2', strokeWidth: '.8', fill: 'none' }} cx="320" cy="320" r="34" />
-      </svg>
-    </div>
-  );
-}
-
-function SignalThread() {
-  return (
-    <div className="signal-thread" aria-hidden="true">
-      <svg viewBox="0 0 40 2000" preserveAspectRatio="none" fill="none">
-        <path className="thread-rail" d="M20 0V2000" />
-        <path className="thread-path" pathLength="1" d="M20 0C20 80 6 108 20 200C34 292 8 370 20 462C34 564 7 658 20 750C33 842 9 932 20 1024C31 1116 8 1208 20 1300C32 1392 9 1480 20 1580C31 1674 20 1870 20 2000" />
-        <circle className="thread-pip" cx="20" cy="218" r="4" />
-        <circle className="thread-pip" cx="20" cy="784" r="4" />
-        <circle className="thread-pip" cx="20" cy="1390" r="4" />
-      </svg>
-    </div>
-  );
-}
+const selectedWork = publications;
 
 /* ── page ────────────────────────────────────────────────────────────────── */
 export default function Home() {
@@ -97,7 +49,6 @@ export default function Home() {
     <>
       <a className="skip-link" href="#main-content">Skip to main content</a>
       <main id="main-content">
-      <SignalThread />
 
       {/* ── HEADER ─────────────────────────────────────────────────── */}
       <header className="site-header">
@@ -105,19 +56,18 @@ export default function Home() {
           <span className="wordmark-badge">AJ</span>
           <span className="wordmark-copy">
             <strong className="wordmark-name">Abhay Jain</strong>
-            <small className="wordmark-role">Business &amp; Strategy</small>
           </span>
         </a>
         <nav className="site-nav" aria-label="Primary">
-          <Link href="#top" className="nav-active">Home</Link>
+          <Link href="#top" className="nav-active nav-home">Home</Link>
           <span className="nav-dot" aria-hidden="true">·</span>
           <Link href="/about-me">About</Link>
           <span className="nav-dot" aria-hidden="true">·</span>
           <Link href="#work">Work</Link>
           <span className="nav-dot" aria-hidden="true">·</span>
-          <a href="#focus">Focus</a>
+          <a href="#focus" className="nav-secondary">Focus</a>
           <span className="nav-dot" aria-hidden="true">·</span>
-          <a href="#track-record">Track Record</a>
+          <a href="#track-record" className="nav-secondary">Experience</a>
           <span className="nav-dot" aria-hidden="true">·</span>
           <Link href="/contact-me" className="nav-cta">Contact <span aria-hidden="true">↗</span></Link>
         </nav>
@@ -130,35 +80,27 @@ export default function Home() {
             Abhay<br />
             <em>Jain</em>
           </h1>
-          <p className="hero-role">
-            Business & Strategy Professional
-            <span className="hero-role-sep" aria-hidden="true">·</span>
-            Technology · Energy · Manufacturing
-          </p>
+          <p className="hero-role">Senior Director, Power &amp; Analog Business Division · Renesas Electronics</p>
           <p className="hero-statement">
-            {sourceCopy.aboutLead}
+            {sourceCopy.homeLead}
           </p>
           <div className="hero-actions">
-            <Link className="btn btn-dark" href="/contact-me">
-              Start a conversation
+            <Link className="btn btn-dark" href="/about-me#experience">
+              Experience
               <span className="btn-icon" aria-hidden="true">↗</span>
             </Link>
-            <a className="btn btn-outline" href="https://www.linkedin.com/in/abhay-jain-10/" target="_blank" rel="noreferrer">
-              LinkedIn
-              <span className="btn-icon" aria-hidden="true">↗</span>
-            </a>
           </div>
         </div>
 
         <div className="hero-visual">
-          <SignalField />
           <figure className="portrait-wrap">
             <Image
               src="/Abhay_Jain_profile_pic.jpg"
               alt="Abhay Jain"
-              width={480}
-              height={640}
+              width={400}
+              height={400}
               className="portrait-img"
+              sizes="(max-width: 700px) 60vw, (max-width: 960px) 28vw, 320px"
               priority
             />
           </figure>
@@ -166,31 +108,11 @@ export default function Home() {
 
       </section>
 
-      {/* ── SOURCE SITE VISUAL ARCHIVE ────────────────────────────── */}
-      <section className="source-archive section-alt">
-        <div className="wrap source-archive-intro reveal">
-          <div>
-            <h2 className="section-h2">A place for<br /><em>the work behind</em><br />the work.</h2>
-          </div>
-          <div className="source-archive-copy-wrap">
-            <p className="source-archive-copy">{sourceCopy.homeIntro}</p>
-            <Link className="source-archive-link" href="/ideas-frameworks">Read more <span aria-hidden="true">↗</span></Link>
-          </div>
-        </div>
-      </section>
-
       {/* ── CURRENT FOCUS ──────────────────────────────────────────── */}
       <section id="focus" className="section">
         <div className="wrap section-grid reveal">
           <div>
-            <h2 className="section-h2">
-              Where<br />
-              the work<br />
-              <em>is now.</em>
-            </h2>
-            <p className="section-sub">
-              A filter for relevant inbound. These are the active domains.
-            </p>
+            <h2 className="section-h2">Current focus</h2>
           </div>
           <div className="focus-list">
             {focusAreas.map((area) => (
@@ -207,17 +129,13 @@ export default function Home() {
       <section id="track-record" className="section section-alt">
         <div className="wrap section-grid reveal">
           <div>
-            <h2 className="section-h2">
-              A record<br />
-              of<br />
-              <em>range.</em>
-            </h2>
+            <h2 className="section-h2">Experience</h2>
           </div>
           <div className="track-list">
             {trackRecord.map((item) => (
               <article className="track-item" key={item.label}>
-                <span className="track-marker track-stat">{item.stat}</span>
-                <div>
+                <div className="track-company">{item.stat}</div>
+                <div className="track-content">
                   <p className="track-label">{item.label}</p>
                   <p className="track-detail">{item.detail}</p>
                 </div>
@@ -230,44 +148,32 @@ export default function Home() {
       {/* ── SELECTED WORK ──────────────────────────────────────────── */}
       <section id="work" className="section">
         <div className="wrap reveal">
-          <div className="work-header">
-            <div>
-              <h2 className="section-h2">
-                Published<br />
-                <em>record.</em>
-              </h2>
-            </div>
-            <p className="work-aside">
-              Research, technical writing, and patents that sit behind the operating profile.
-            </p>
-          </div>
+          <div className="work-header"><h2 className="section-h2">Selected work</h2></div>
           <div className="work-list">
-            {selectedWork.map((work, i) => (
-              <a
+            {selectedWork.map((work) => (
+              <article
                 className="work-item"
                 key={work.title}
-                href={work.href}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={`View: ${work.title}`}
               >
-                <span className="work-num">0{i + 1}</span>
-                <span className="work-type">{work.type}</span>
                 <span className="work-title">{work.title}</span>
                 <span className="work-context">{work.source}</span>
-                <span className="work-view">View <span aria-hidden="true">↗</span></span>
-              </a>
+                <span className="work-view">
+                  <a href={work.href} target="_blank" rel="noreferrer" aria-label={`View ${work.title}`}>
+                    View <span aria-hidden="true">↗</span>
+                  </a>
+                </span>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── BANNER IMAGE SECTION ────────────────────────────────────── */}
+      {/* ── CONVERSATION ────────────────────────────────────────────── */}
       <section id="inbound" className="banner-section">
         <div className="banner-img-wrap">
           <Image
-            src="/abhay-kalam-clean.png"
-            alt="Abhay Jain with Dr. A.P.J. Abdul Kalam"
+            src="/abhay-kalam-clean.webp"
+            alt="Abhay Jain meeting Dr. A.P.J. Abdul Kalam at IIT Kanpur"
             fill
             className="banner-img"
             sizes="100vw"
@@ -275,10 +181,9 @@ export default function Home() {
           <div className="banner-overlay" />
         </div>
         <div className="wrap banner-content">
-          <h2 className="banner-h2">Inbound</h2>
+          <h2 className="banner-h2">Contact</h2>
           <p className="banner-sub">
-            Open to precise conversations regarding advisory positions,
-            operating questions, or institutional alignment.
+            For leadership, advisory, or business conversations in semiconductors, technology, energy, and industrial markets.
           </p>
           <a
             className="btn btn-dark"
@@ -288,82 +193,13 @@ export default function Home() {
           >
             Connect on LinkedIn <span aria-hidden="true">↗</span>
           </a>
-          <nav className="social-row" aria-label="Social profiles">
-            {socialLinks.map((social) => <a key={social.label} href={social.href} target="_blank" rel="noreferrer">{social.label} <span aria-hidden="true">↗</span></a>)}
-          </nav>
+          <p className="banner-caption">Abhay Jain with Dr. A.P.J. Abdul Kalam · IIT Kanpur</p>
         </div>
-      </section>
-
-      {/* ── AFFILIATIONS ───────────────────────────────────────────── */}
-      <section className="section section-alt">
-        <div className="wrap section-grid reveal">
-          <div>
-            <h2 className="section-h2">
-              Built<br />
-              across<br />
-              <em>systems.</em>
-            </h2>
-          </div>
-          <div className="aff-grid">
-            <div className="aff-block">
-              <h3 className="aff-title">Current</h3>
-              <ul className="aff-list">
-                {affiliations.current.map((a) => <li key={a}>{a}</li>)}
-              </ul>
-            </div>
-            <div className="aff-block">
-              <h3 className="aff-title">Earlier</h3>
-              <ul className="aff-list">
-                {affiliations.earlier.map((a) => <li key={a}>{a}</li>)}
-              </ul>
-            </div>
-            <div className="aff-block">
-              <h3 className="aff-title">Education</h3>
-              <ul className="aff-list">
-                {affiliations.education.map((a) => <li key={a}>{a}</li>)}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── CONTACT ────────────────────────────────────────────────── */}
-      <section id="contact" className="contact-section">
-        <div className="wrap contact-inner">
-          <div>
-            <h2 className="contact-h2">
-              Relevant<br />
-              conversation?<br />
-              <em>Begin there.</em>
-            </h2>
-          </div>
-          <div className="contact-side">
-            <p className="contact-desc">
-              {sourceCopy.contactLead}
-            </p>
-            <div className="contact-actions">
-              <a
-                className="contact-link contact-link-primary"
-                href="https://www.linkedin.com/in/abhay-jain-10/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Connect on LinkedIn <span aria-hidden="true">↗</span>
-              </a>
-              <Link className="contact-link contact-link-secondary" href="/about-me">
-                View full profile
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        <footer className="wrap site-footer footer-dark">
+        <footer className="wrap site-footer banner-footer">
           <span>© {new Date().getFullYear()} Abhay Jain</span>
-          <Link href="/about-me">About me</Link>
-          <Link href="/#work">Work</Link>
-          <Link href="/contact-me">Contact me</Link>
+          <Link href="/about-me">About</Link>
+          <Link href="/#work">Selected work</Link>
           <Link href="/sitemap.xml">Sitemap</Link>
-          <span>abhayjain.net</span>
         </footer>
       </section>
       </main>

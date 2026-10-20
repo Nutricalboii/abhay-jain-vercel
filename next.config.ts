@@ -1,8 +1,20 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  output: 'export',
-  images: { unoptimized: true },
+  async redirects() {
+    return [
+      {
+        source: '/about',
+        destination: '/about-me',
+        permanent: true,
+      },
+      {
+        source: '/ideas-frameworks',
+        destination: '/#work',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
