@@ -1042,8 +1042,10 @@ button:focus-visible {
 }
 
 @media (max-width: 360px) {
-  .site-nav .nav-home { display: none; }
+  .wordmark-copy { white-space: nowrap; }
   .site-nav { max-width: calc(100% - 104px); gap: 5px; }
+  .site-nav a[href="#work"],
+  .site-nav a[href="/#work"] { display: none; }
 }
 
 /* ── Executive-profile refinements ─────────────────────────────────────── */
