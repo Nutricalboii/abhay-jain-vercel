@@ -15,7 +15,7 @@
   --copper-dim: rgba(180,83,42,.55);
   --white:      #FBFAF6;
 
-  /* Typography — set via next/font CSS variables injected on <html> */
+  /* Typography — local system stack; no remote font request or layout shift */
   --font-display: Georgia, 'Times New Roman', serif;
   --font-sans:    Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono:    'SFMono-Regular', 'Menlo', 'Consolas', monospace;
@@ -131,9 +131,9 @@ button:focus-visible {
   align-items: center;
   gap: 8px;
   font-family: var(--font-sans);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
-  letter-spacing: .14em;
+  letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--ink-60);
   min-width: 0;
@@ -172,7 +172,7 @@ button:focus-visible {
   min-height: 44px;
   border: 1.5px solid var(--ink);
   border-radius: 2px;
-  font-size: 10px;
+  font-size: 11px;
   color: var(--ink) !important;
   transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out) !important;
 }
@@ -261,9 +261,9 @@ button:focus-visible {
   height: 46px;
   padding: 0 22px;
   font-family: var(--font-sans);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: .12em;
+  letter-spacing: .1em;
   text-transform: uppercase;
   border-radius: 2px;
   transition: transform var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
@@ -518,9 +518,9 @@ button:focus-visible {
   height: 52px;
   padding: 0 22px;
   font-family: var(--font-sans);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: .12em;
+  letter-spacing: .1em;
   text-transform: uppercase;
   border-radius: 2px;
   transition: transform var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out);
@@ -951,22 +951,7 @@ button:focus-visible {
 .social-row a, .contact-socials a { font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-60); transition: color var(--dur-fast) var(--ease-out); }
 .social-row a:hover, .contact-socials a:hover { color: var(--copper); }
 
-.contact-form-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-.source-form { color: var(--ink); }
-.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.form-grid label { display: flex; flex-direction: column; gap: 6px; font-family: var(--font-mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-60); }
-.form-full { grid-column: 1 / -1; }
-.source-form input:not([type='checkbox']), .source-form textarea { width: 100%; padding: 12px 14px; border: 1px solid var(--ink-15); border-radius: 0; background: rgba(255,255,255,.5); color: var(--ink); font: 15px/1.4 var(--font-sans); text-transform: none; letter-spacing: normal; }
-.source-form textarea { resize: vertical; }
-.form-consent { display: flex; align-items: flex-start; gap: 8px; margin-block: 24px; color: var(--ink-60); font-size: 12px; line-height: 1.5; }
-.form-consent input { margin-top: 4px; accent-color: var(--copper); }
-.form-preview-note { margin-top: 16px; color: var(--ink-35); font-size: 12px; line-height: 1.5; }
-.form-success { padding: 40px; border: 1px solid var(--copper-dim); background: rgba(255,255,255,.45); }
-.form-success h2 { font-family: var(--font-display); font-size: 42px; font-weight: 400; }
-.form-success p:not(.form-preview-note) { margin-top: 12px; color: var(--ink-60); }
-
 @media (max-width: 960px) {
-  .contact-form-layout { grid-template-columns: 1fr; gap: 40px; }
   .recognition-header { grid-template-columns: 1fr; gap: 24px; }
   .recognition-summary { justify-self: start; }
 }
@@ -978,16 +963,14 @@ button:focus-visible {
     justify-content: flex-end;
     gap: 4px;
     max-width: calc(100% - 104px);
-    font-size: 10px;
-    letter-spacing: .03em;
+    font-size: 11px;
+    letter-spacing: .04em;
   }
   .site-nav .nav-secondary,
   .site-nav .nav-dot { display: none; }
   .site-nav a { padding-inline: 4px; }
-  .site-nav a.nav-cta { margin-left: 2px; padding-inline: 9px !important; font-size: 10px; }
+  .site-nav a.nav-cta { margin-left: 2px; padding-inline: 9px !important; font-size: 11px; }
   .site-footer a { min-height: 40px; display: inline-flex; align-items: center; padding-block: 8px; }
-  .form-full { grid-column: auto; }
-
 }
 
 @media (max-width: 360px) {
