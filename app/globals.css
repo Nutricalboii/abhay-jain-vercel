@@ -1043,9 +1043,9 @@ button:focus-visible {
 
 @media (max-width: 360px) {
   .wordmark-copy { white-space: nowrap; }
-  .site-nav { max-width: calc(100% - 104px); gap: 5px; }
-  .site-nav a[href="#work"],
-  .site-nav a[href="/#work"] { display: none; }
+  .site-nav { max-width: calc(100% - 96px); gap: 2px; font-size: 10px; letter-spacing: .01em; }
+  .site-nav a { padding-inline: 1px; }
+  .site-nav a.nav-cta { margin-left: 0; padding-inline: 4px !important; font-size: 10px; }
 }
 
 /* ── Executive-profile refinements ─────────────────────────────────────── */
